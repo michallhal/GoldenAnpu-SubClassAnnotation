@@ -13,6 +13,7 @@ You may need to follow [this](https://askubuntu.com/questions/1434956/install-qt
 
 
 ```>>> . venv-GUI/bin/activate```
+
 ```>>> pip3 install -r requirements.txt```
 
 
