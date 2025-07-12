@@ -1,6 +1,7 @@
 # GoldenAnpu-SubClassAnnotation
 Provides annotation support for the GoldenAnpu sweet pepper dataset to convert it to the University of Bonn BUP variants.
 
+This GUI was created in PyQt6.
 
 # Create the virtual environment
 
@@ -28,3 +29,21 @@ You'll find the meta file for their dataset [here](files/meta.json) that you nee
 # How to use the annotation tool
 
 ![Screenshot of the Application](images/GUI.png)
+
+This is a basic subclass annotation tool for existing instance-based semantic segmentation datasets that have json files in the ```supervisely``` library type fashion.
+
+The main image is displayed on the left panel with the object outlined based on the colours in the [meta](files/meta.json) file, you can change these as you wish.
+
+The middle panel is the zoomed in and cropped object. On the right is the subclass buttons.
+
+```MRed == mixed red```
+
+```MYellow == mixed yellow```
+
+For each annotation per image the button for the currently annotated sub-class will be depressed. If this is incorrect, you need to press that button then select the correct sub-class (you can do this in any order).
+Once you have either changed the sub-class or are happy with them you hit the next button and the next annotation will be displayed.
+
+If you made a mistake, you can hit the back button and you will go back to the previous annotation. **WARNING** if you go back far enough that you enter the previous image you will start that image from the beginning!
+
+Finally, there is no save function, if you want to start again from a particular image you can use the ```image index``` drop down menu.
+Look in the ```--output``` directory, work out which image you are up to, then select that image from the drop down menu.
