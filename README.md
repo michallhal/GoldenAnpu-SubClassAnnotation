@@ -41,7 +41,7 @@ The middle panel is the zoomed in and cropped object. On the right is the subcla
 
 ```MYellow == mixed yellow```
 
-For each annotation per image the button for the currently annotated sub-class will be depressed. If this is incorrect, you need to press that button then select the correct sub-class (you can do this in any order).
+For each annotation per image the button for the currently annotated sub-class will be depressed. If this is incorrect, you need to press that wrong button then select the correct sub-class.
 Once you have either changed the sub-class or are happy with them you hit the next button and the next annotation will be displayed.
 
 If you made a mistake, you can hit the back button and you will go back to the previous annotation. **WARNING** if you go back far enough that you enter the previous image you will start that image from the beginning!
