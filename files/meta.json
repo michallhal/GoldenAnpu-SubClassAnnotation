@@ -1,0 +1,54 @@
+{
+    "classes": [
+        {
+            "id": 20709,
+            "title": "green fruit",
+            "shape": "polygon",
+            "color": "#00FF00"
+        },
+        {
+            "id": 20710,
+            "title": "green peduncle",
+            "shape": "polygon",
+            "color": "#008000"
+        },
+        {
+            "id": 20711,
+            "title": "red fruit",
+            "shape": "polygon",
+            "color": "#FF0000"
+        },
+        {
+            "id": 20712,
+            "title": "red peduncle",
+            "shape": "polygon",
+            "color": "#800000"
+        },
+        {
+            "id": 20713,
+            "title": "yellow fruit",
+            "shape": "polygon",
+            "color": "#FFFF00"
+        },
+        {
+            "id": 20714,
+            "title": "yellow peduncle",
+            "shape": "polygon",
+            "color": "#FFFF99"
+        },
+        {
+            "id": 20715,
+            "title": "orange fruit",
+            "shape": "polygon",
+            "color": "#FFA500"
+        },
+        {
+            "id": 20716,
+            "title": "orange peduncle",
+            "shape": "polygon",
+            "color": "#FF7F50"
+        }
+    ],
+    "tags": [],
+    "projectType": "images"
+}
