@@ -48,3 +48,25 @@ If you made a mistake, you can hit the back button and you will go back to the p
 
 Finally, there is no save function, if you want to start again from a particular image you can use the ```image index``` drop down menu.
 Look in the ```--output``` directory, work out which image you are up to, then select that image from the drop down menu.
+
+
+# Colour in the smap and check the imap indexs
+
+This is a little function to make sure everything is working how you expected it to.
+It colours in the smap and prints out the indexs to the masks in the imap per semantic class.
+
+```>>> python main.py --colourin --annoloc <path to your panoptic files> --imgprefix <the prefix of the image you want to read in the smap and imap of minus the extension>```
+
+You should get something like:
+
+![Smap of the first image](images/smap.png)
+
+```
+The classes in the smap are ['background', 'Red', 'Green', 'MRed', 'Peduncle']
+The instances in the imap are:
+         background [0]
+         Red [1 2 3 4 5]
+         Green [1]
+         MRed [1 2]
+         Peduncle [1 2 3 4]
+```
