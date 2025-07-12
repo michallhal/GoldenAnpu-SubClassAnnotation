@@ -129,6 +129,9 @@ class GoldenAnpu_SP_Annotation(QMainWindow):
       self.jt -= 2
       text = self.imap_indexs_history[self.jt]
       self.imap_indexs[text] -= 1
+      text = self.imap_indexs_history[self.jt+1]
+      self.imap_indexs[text] -= 1
+      self.imap_indexs_history.pop(self.jt+1)
       self.reset_ui()
     else:
       if self.it - 1 >= 0:
@@ -145,20 +148,18 @@ class GoldenAnpu_SP_Annotation(QMainWindow):
 
   def on_button_toggled(self, button, checked):
     if checked:
-      self.class_mapper(button.text())
+      self.class_mapper(button.text(), self.jt-1)
     else:
+      self.imap_indexs_history.pop(self.jt-1)
       self.imap_indexs[button.text()] -= 1
 
-  def class_mapper(self, text):
+  def class_mapper(self, text, ind):
     sind = BUPClasses.index(text)
     # print(sind)
     self.smap[self.r,self.c] = sind
     self.imap[self.r,self.c] = self.imap_indexs[text]
-    self.imap_indexs_history[self.jt] = text
+    self.imap_indexs_history[ind] = text
     self.imap_indexs[text] += 1
-    # r, c = np.where(self.smap==sind)
-    # iind = np.amax(self.imap[r,c])
-    # self.imap[self.r, self.c] = iind+1
 
   def getcroppedimg(self,):
     self.image_name = self.imgF[self.it]
@@ -184,7 +185,7 @@ class GoldenAnpu_SP_Annotation(QMainWindow):
         self.r, self.c, _ = np.where(img2>0)
         hmin, hmax = np.clip(np.amin(self.r)-20, 0, img.shape[0]), np.clip(np.amax(self.r)+20, 0, img.shape[0])
         wmin, wmax = np.clip(np.amin(self.c)-20, 0, img.shape[1]), np.clip(np.amax(self.c)+20, 0, img.shape[1])
-        self.jt += 1
+        # self.jt += 1
         self.out = img[hmin:hmax,wmin:wmax,:].copy()
         self.cls = label.obj_class.name
         self.input_image = img3.copy()
@@ -238,13 +239,14 @@ class GoldenAnpu_SP_Annotation(QMainWindow):
     self.btn_black.setChecked(False)
     if self.cls == 'green fruit':
       self.btn_green.setChecked(True)
-      self.class_mapper('Green')
+      self.class_mapper('Green', self.jt)
     elif self.cls == 'red fruit':
       self.btn_red.setChecked(True)
-      self.class_mapper('Red')
+      self.class_mapper('Red', self.jt)
     elif self.cls == 'yellow fruit':
       self.btn_yellow.setChecked(True)
-      self.class_mapper('Yellow')
+      self.class_mapper('Yellow', self.jt)
     elif 'peduncle' in self.cls:
       self.btn_ped.setChecked(True)
-      self.class_mapper('Peduncle')
+      self.class_mapper('Peduncle', self.jt)
+    self.jt += 1
